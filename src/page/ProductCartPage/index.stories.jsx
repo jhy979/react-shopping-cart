@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
 import ProductCartPage from 'page/ProductCartPage';
-import {handlers} from 'mocks/handlers';
 
 export default {
   component: ProductCartPage,
@@ -22,8 +21,3 @@ const Template = (args) => (
 
 export const Defaults = Template.bind({});
 Defaults.args = {};
-Defaults.parameters = {
-  msw: {
-    handlers,
-  },
-};
