@@ -30,8 +30,13 @@ addDecorator((story) => (
   </Provider>
 ));
 
-initialize();
-addDecorator(mswDecorator);
+if (process.env.NODE_ENV === 'development') {
+  const {worker} = require('./mocks/browsers');
+  worker.start();
+
+  initialize();
+  addDecorator(mswDecorator);
+}
 
 export const parameters = {
   controls: {
