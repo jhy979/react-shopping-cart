@@ -25,6 +25,11 @@ initialize();
 
 export const decorators = [mswDecorator];
 
+if (process.env.NODE_ENV === 'development') {
+  const {worker} = require('./mocks/browsers');
+  worker.start();
+}
+
 addDecorator((story) => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
